@@ -238,7 +238,7 @@
       margin-bottom: 18px;
     }
 
-    .about-right { padding-top: 80px; }
+    .about-right { padding-top: 0px; }
 
     .journey-map { margin-bottom: 36px; opacity: 0.85; }
 
@@ -553,65 +553,68 @@
     <canvas id="particleCanvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.4;"></canvas>
   </section>
 
-  <section id="about">
-    <div class="about-left reveal">
-      <div class="section-label">About</div>
-      <h2 class="about-heading">Always<br>building<br><em>something</em>.</h2>
-      <p class="about-body">Grew up in Palm City, moved to New York at 18. I joined my first founding team at 16 as an AI Workflow Engineer at Nova Echo AI where we built voice agents for small businesses and hit six figures in ARR.</p>
+<section id="about">
+  <div class="about-left reveal">
+    <div class="section-label">About</div>
+    <h2 class="about-heading">Always<br>building<br><em>something</em>.</h2>
+    <p class="about-body">Grew up in Palm City, moved to New York at 18. I joined my first founding team at 16 as an AI Workflow Engineer at Nova Echo AI where we built voice agents for small businesses and hit six figures in ARR.</p>
       <p class="about-body">Since then I have been across AI, real estate, wealth management, social networking startups, and recruiting. I founded Cipher Intel to give business students a place to publish research and build a name for themselves. Right now I am CoS at Ambees.io, a startup I am building with friends from Georgetown and UC Berkeley, while doing tech recruiting at Venturi in NYC.</p>
       <p class="about-body">Outside of work I enjoy investing, playing golf whenever I can, and lately I have been teaching myself Python to grow my technical skills.</p>
+
+    <div class="journey-map" style="margin-top: 32px;">
+      <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:260px;">
+        <path id="route" d="M 100 320 C 80 250, 120 180, 95 80"
+          fill="none" stroke="#c5a95a" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/>
+        <circle r="4" fill="#c5a95a">
+          <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#route"/>
+          </animateMotion>
+        </circle>
+        <circle cx="100" cy="320" r="5" fill="none" stroke="#c5a95a" stroke-width="1.5"/>
+        <circle cx="100" cy="320" r="2" fill="#c5a95a"/>
+        <text x="112" y="325" font-family="'DM Mono', monospace" font-size="9" fill="#6b6b6b" letter-spacing="1">PALM CITY</text>
+        <circle cx="95" cy="80" r="5" fill="none" stroke="#c5a95a" stroke-width="1.5"/>
+        <circle cx="95" cy="80" r="2" fill="#c5a95a"/>
+        <text x="107" y="85" font-family="'DM Mono', monospace" font-size="9" fill="#6b6b6b" letter-spacing="1">NEW YORK</text>
+        <text x="40" y="205" font-family="'DM Mono', monospace" font-size="8" fill="#c8c4bb" letter-spacing="1">1,280 MI</text>
+      </svg>
     </div>
-    <div class="about-right reveal">
-      <div class="journey-map">
-        <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:260px;">
-          <path id="route" d="M 100 320 C 80 250, 120 180, 95 80"
-            fill="none" stroke="#c5a95a" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/>
-          <circle r="4" fill="#c5a95a">
-            <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
-              <mpath href="#route"/>
-            </animateMotion>
-          </circle>
-          <circle cx="100" cy="320" r="5" fill="none" stroke="#c5a95a" stroke-width="1.5"/>
-          <circle cx="100" cy="320" r="2" fill="#c5a95a"/>
-          <text x="112" y="325" font-family="'DM Mono', monospace" font-size="9" fill="#6b6b6b" letter-spacing="1">PALM CITY</text>
-          <circle cx="95" cy="80" r="5" fill="none" stroke="#c5a95a" stroke-width="1.5"/>
-          <circle cx="95" cy="80" r="2" fill="#c5a95a"/>
-          <text x="107" y="85" font-family="'DM Mono', monospace" font-size="9" fill="#6b6b6b" letter-spacing="1">NEW YORK</text>
-          <text x="40" y="205" font-family="'DM Mono', monospace" font-size="8" fill="#c8c4bb" letter-spacing="1">1,280 MI</text>
-        </svg>
-      </div>
+  </div>
 
-      <div class="stats-grid">
-        <div class="stat">
-          <div class="stat-number">16</div>
-          <div class="stat-label">Age at first startup</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">1600<sup>%</sup></div>
-          <div class="stat-label">NVDA return</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">6<sup>+</sup></div>
-          <div class="stat-label">Companies and ventures</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">300<sup>%</sup></div>
-          <div class="stat-label">Silver return</div>
-        </div>
-      </div>
+  <div class="about-right reveal">
+    <img src="me.jpeg" alt="Andrew Galdys" style="width:100%;height:420px;object-fit:cover;object-position:top;margin-bottom:32px;" />
 
-      <div class="interests">
-        <span class="interest-tag">Startups</span>
-        <span class="interest-tag">AI</span>
-        <span class="interest-tag">Finance</span>
-        <span class="interest-tag">Tech Recruiting</span>
-        <span class="interest-tag">Real Estate</span>
-        <span class="interest-tag">Investing</span>
-        <span class="interest-tag">Golf</span>
-        <span class="interest-tag">Python</span>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-number">16</div>
+        <div class="stat-label">Age at first startup</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1600<sup>%</sup></div>
+        <div class="stat-label">NVDA return</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">6<sup>+</sup></div>
+        <div class="stat-label">Companies and ventures</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">300<sup>%</sup></div>
+        <div class="stat-label">Silver return</div>
       </div>
     </div>
-  </section>
+
+    <div class="interests">
+      <span class="interest-tag">Startups</span>
+      <span class="interest-tag">AI</span>
+      <span class="interest-tag">Finance</span>
+      <span class="interest-tag">Tech Recruiting</span>
+      <span class="interest-tag">Real Estate</span>
+      <span class="interest-tag">Investing</span>
+      <span class="interest-tag">Golf</span>
+      <span class="interest-tag">Python</span>
+    </div>
+  </div>
+</section>
 
   <section id="work">
     <div class="reveal">
