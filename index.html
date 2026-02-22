@@ -243,6 +243,10 @@
     }
 
     .about-left {}
+    .journey-map {
+  margin-bottom: 40px;
+  opacity: 0.85;
+}
 
     .about-heading {
       font-family: 'Cormorant Garamond', serif;
@@ -706,6 +710,37 @@
   <section id="about">
     <div class="about-left reveal">
       <div class="section-label">About</div>
+      <div class="journey-map">
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:260px;">
+    <!-- Dotted path from Palm Beach to NYC -->
+    <path id="route" d="M 100 320 C 80 250, 120 180, 95 80" 
+      fill="none" 
+      stroke="#c5a95a" 
+      stroke-width="1.5" 
+      stroke-dasharray="6 4"
+      opacity="0.6"/>
+    
+    <!-- Animated dot traveling the route -->
+    <circle r="4" fill="#c5a95a">
+      <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
+        <mpath href="#route"/>
+      </animateMotion>
+    </circle>
+
+    <!-- Palm Beach pin -->
+    <circle cx="100" cy="320" r="5" fill="none" stroke="#c5a95a" stroke-width="1.5"/>
+    <circle cx="100" cy="320" r="2" fill="#c5a95a"/>
+    <text x="112" y="325" font-family="'DM Mono', monospace" font-size="9" fill="#6b6b6b" letter-spacing="1">PALM BEACH</text>
+
+    <!-- NYC pin -->
+    <circle cx="95" cy="80" r="5" fill="none" stroke="#c5a95a" stroke-width="1.5"/>
+    <circle cx="95" cy="80" r="2" fill="#c5a95a"/>
+    <text x="107" y="85" font-family="'DM Mono', monospace" font-size="9" fill="#6b6b6b" letter-spacing="1">NEW YORK</text>
+
+    <!-- Distance label -->
+    <text x="40" y="205" font-family="'DM Mono', monospace" font-size="8" fill="#c8c4bb" letter-spacing="1">1,280 MI</text>
+  </svg>
+</div>
       <h2 class="about-heading">Builder at<br><em>heart</em>.</h2>
     </div>
     <div class="about-right reveal">
