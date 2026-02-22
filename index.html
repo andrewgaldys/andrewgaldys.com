@@ -31,34 +31,32 @@
       overflow-x: hidden;
     }
 
-    /* Custom cursor */
-.cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease;
-}
-.cursor::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 0;
-  width: 100%; height: 1px;
-  background: var(--ink);
-  transform: translateY(-50%);
-}
-.cursor::after {
-  content: '';
-  position: absolute;
-  left: 50%; top: 0;
-  height: 100%; width: 1px;
-  background: var(--ink);
-  transform: translateX(-50%);
-}
-    
-    /* Nav */
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease;
+    }
+    .cursor::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 0;
+      width: 100%; height: 1px;
+      background: var(--ink);
+      transform: translateY(-50%);
+    }
+    .cursor::after {
+      content: '';
+      position: absolute;
+      left: 50%; top: 0;
+      height: 100%; width: 1px;
+      background: var(--ink);
+      transform: translateX(-50%);
+    }
+
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -67,7 +65,6 @@
       justify-content: space-between;
       align-items: center;
       padding: 28px 60px;
-      mix-blend-mode: multiply;
     }
 
     .nav-logo {
@@ -76,7 +73,8 @@
       font-weight: 400;
       letter-spacing: 0.08em;
       text-decoration: none;
-      color: var(--ink);
+      color: var(--cream);
+      mix-blend-mode: difference;
     }
 
     .nav-links {
@@ -91,251 +89,131 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       text-decoration: none;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--ink); }
-
-    /* Hero */
-   #hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 60px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.hero-eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  opacity: 0;
-  animation: fadeUp 0.8s 0.2s forwards;
-}
-
-.hero-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(72px, 11vw, 150px);
-  font-weight: 300;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.4s forwards;
-}
-
-.hero-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: flex-start;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.6s forwards;
-}
-
-.hero-desc {
-  max-width: 380px;
-  font-size: 1rem;
-  color: var(--mid);
-  line-height: 1.7;
-  font-weight: 300;
-}
-
-/* Geometric element */
-.hero-right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 500px;
-  opacity: 0;
-  animation: fadeUp 0.8s 0.7s forwards;
-}
-
-.hero-geo {
-  position: relative;
-  width: 340px;
-  height: 340px;
-}
-
-.geo-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.geo-ring-1 {
-  width: 340px; height: 340px;
-  animation: spin 40s linear infinite;
-  border-style: dashed;
-  border-color: var(--light);
-  opacity: 0.5;
-}
-
-.geo-ring-2 {
-  width: 220px; height: 220px;
-  border-color: var(--border);
-  animation: spin 25s linear infinite reverse;
-}
-
-.geo-ring-3 {
-  width: 100px; height: 100px;
-  border-color: var(--accent);
-  opacity: 0.4;
-  animation: spin 15s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-.geo-cross {
-  position: absolute;
-  background: var(--border);
-  top: 50%; left: 50%;
-}
-
-.geo-cross-h {
-  width: 340px; height: 1px;
-  transform: translate(-50%, -50%);
-}
-
-.geo-cross-v {
-  width: 1px; height: 340px;
-  transform: translate(-50%, -50%);
-}
-
-.geo-dot {
-  position: absolute;
-  width: 6px; height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  top: 50%; left: 50%;
-}
-
-.geo-dot-1 {
-  transform: translate(-50%, -50%) translateY(-170px);
-  animation: orbit1 40s linear infinite;
-}
-
-.geo-dot-2 {
-  transform: translate(-50%, -50%) translateX(110px);
-  animation: orbit2 25s linear infinite reverse;
-}
-
-.geo-dot-3 {
-  width: 10px; height: 10px;
-  background: var(--ink);
-  transform: translate(-50%, -50%);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes orbit1 {
-  from { transform: translate(-50%, -50%) rotate(0deg) translateY(-170px); }
-  to { transform: translate(-50%, -50%) rotate(360deg) translateY(-170px); }
-}
-
-@keyframes orbit2 {
-  from { transform: translate(-50%, -50%) rotate(0deg) translateX(110px); }
-  to { transform: translate(-50%, -50%) rotate(360deg) translateX(110px); }
-}
-
-.geo-label {
-  position: absolute;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--light);
-}
-
-.geo-label-1 { top: 8%; left: 52%; }
-.geo-label-2 { top: 48%; left: 78%; }
-.geo-label-3 { top: 80%; left: 30%; }
-
-.hero-bg-text {
-  position: absolute;
-  bottom: -60px;
-  left: -10px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(80px, 12vw, 160px);
-  font-weight: 300;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--border);
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-  line-height: 1;
-  opacity: 0.5;
-  z-index: 1;
-}
-
-@media (max-width: 768px) {
-  #hero { padding: 100px 24px 60px; }
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-}
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-decoration: none;
       color: var(--cream);
+      mix-blend-mode: difference;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 0.6; }
+
+    #hero {
+      min-height: 100vh;
       background: var(--ink);
-      padding: 14px 28px;
-      transition: background 0.25s, color 0.25s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .btn-primary:hover {
-      background: var(--accent);
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .btn-primary .arrow {
-      transition: transform 0.2s;
-    }
-    .btn-primary:hover .arrow {
-      transform: translateX(4px);
-    }
-
-    /* Divider */
-    .rule {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin: 0 60px;
-      width: calc(100% - 120px);
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(197,169,90,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
     }
 
-    /* Section base */
-    section {
-      padding: 120px 60px;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
     }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0;
+      animation: fadeIn 1s 0.3s forwards;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(64px, 11vw, 160px);
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      opacity: 0;
+      animation: fadeIn 1.2s 0.6s forwards;
+    }
+
+    .hero-name span { display: block; }
+
+    .hero-name .last {
+      font-style: italic;
+      color: rgba(248,246,241,0.5);
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      color: rgba(248,246,241,0.45);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      max-width: 400px;
+      opacity: 0;
+      animation: fadeIn 1s 1s forwards;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s 1.4s forwards;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, var(--accent));
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    .hero-scroll-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(248,246,241,0.3);
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section { padding: 80px 60px; }
 
     .section-label {
       font-family: 'DM Mono', monospace;
@@ -343,7 +221,7 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 60px;
+      margin-bottom: 40px;
       display: flex;
       align-items: center;
       gap: 16px;
@@ -353,80 +231,68 @@
       content: '';
       display: block;
       height: 1px;
-      width: 60px;
+      width: 48px;
       background: var(--accent);
       opacity: 0.4;
     }
 
-    /* About */
     #about {
+      border-top: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: start;
     }
 
-    .about-left {}
-    .journey-map {
-  margin-bottom: 40px;
-  opacity: 0.85;
-}
-
     .about-heading {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 5vw, 64px);
+      font-size: clamp(32px, 4vw, 54px);
       font-weight: 300;
-      line-height: 1.1;
+      line-height: 1.15;
       letter-spacing: -0.01em;
-      margin-bottom: 40px;
+      margin-bottom: 28px;
     }
 
-    .about-heading em {
-      font-style: italic;
-      color: var(--mid);
-    }
+    .about-heading em { font-style: italic; color: var(--mid); }
 
     .about-body {
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       color: var(--mid);
       line-height: 1.85;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
-    .about-right {
-      padding-top: 100px;
-    }
+    .about-right { padding-top: 80px; }
+
+    .journey-map { margin-bottom: 36px; opacity: 0.85; }
 
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2px;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
 
     .stat {
       background: white;
-      padding: 32px 28px;
+      padding: 28px 24px;
       border: 1px solid var(--border);
     }
 
     .stat-number {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       font-weight: 300;
       line-height: 1;
       color: var(--ink);
       margin-bottom: 6px;
     }
 
-    .stat-number sup {
-      font-size: 1.2rem;
-      vertical-align: super;
-    }
+    .stat-number sup { font-size: 1.1rem; vertical-align: super; }
 
     .stat-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--light);
@@ -434,61 +300,45 @@
 
     .interests {
       border-top: 1px solid var(--border);
-      padding-top: 32px;
+      padding-top: 28px;
     }
 
     .interest-tag {
       display: inline-block;
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--mid);
       border: 1px solid var(--border);
-      padding: 6px 14px;
-      margin: 4px 4px 4px 0;
+      padding: 5px 12px;
+      margin: 3px 3px 3px 0;
       transition: border-color 0.2s, color 0.2s;
     }
 
-    .interest-tag:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    .interest-tag:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* Timeline */
-    #work {
-      border-top: 1px solid var(--border);
-    }
-
-    .work-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 80px;
-    }
+    #work { border-top: 1px solid var(--border); }
 
     .work-heading {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 5vw, 64px);
+      font-size: clamp(32px, 4vw, 54px);
       font-weight: 300;
       line-height: 1.1;
+      margin-bottom: 48px;
     }
 
     .work-heading em { font-style: italic; color: var(--mid); }
 
-    .timeline {
-      display: flex;
-      flex-direction: column;
-    }
+    .timeline { display: flex; flex-direction: column; }
 
     .timeline-item {
       display: grid;
       grid-template-columns: 200px 1fr;
       gap: 40px;
-      padding: 40px 0;
+      padding: 32px 0;
       border-bottom: 1px solid var(--border);
-      position: relative;
-      transition: background 0.2s;
+      transition: background 0.2s, padding 0.2s;
     }
 
     .timeline-item:first-child { border-top: 1px solid var(--border); }
@@ -502,7 +352,7 @@
 
     .timeline-year {
       font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.1em;
       color: var(--light);
       padding-top: 4px;
@@ -524,152 +374,57 @@
       50% { opacity: 0.3; }
     }
 
-    .timeline-content {}
-
     .timeline-role {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 400;
       margin-bottom: 4px;
     }
 
     .timeline-company {
       font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .timeline-desc {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--mid);
       line-height: 1.7;
-      max-width: 560px;
+      max-width: 520px;
     }
 
-    /* Investments */
-    #investments {
-      border-top: 1px solid var(--border);
-      background: var(--ink);
-      color: var(--cream);
-    }
-
-    #investments .section-label {
-      color: var(--accent);
-    }
-
-    #investments .section-label::after {
-      background: var(--accent);
-    }
-
-    .inv-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--cream);
-      margin-bottom: 16px;
-    }
-
-    .inv-heading em { font-style: italic; color: var(--light); }
-
-    .inv-sub {
-      font-size: 0.9rem;
-      color: var(--light);
-      margin-bottom: 80px;
-      max-width: 440px;
-    }
-
-    .trades-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    .trade-card {
-      background: #1a1a1a;
-      padding: 48px 40px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-    }
-
-    .trade-card:hover { background: #222; }
-
-    .trade-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transition: transform 0.3s;
-      transform-origin: left;
-    }
-
-    .trade-card:hover::before { transform: scaleX(1); }
-
-    .trade-ticker {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 16px;
-    }
-
-    .trade-return {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem;
-      font-weight: 300;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .trade-name {
-      font-size: 0.85rem;
-      color: #888;
-    }
-
-    /* Contact */
     #contact {
       border-top: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
-      min-height: 60vh;
     }
-
-    .contact-left {}
 
     .contact-heading {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(44px, 7vw, 90px);
+      font-size: clamp(44px, 7vw, 88px);
       font-weight: 300;
       line-height: 1;
       letter-spacing: -0.02em;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
     .contact-heading em { font-style: italic; color: var(--mid); }
 
     .contact-body {
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       color: var(--mid);
       line-height: 1.8;
-      margin-bottom: 40px;
-      max-width: 380px;
+      margin-bottom: 36px;
+      max-width: 360px;
     }
 
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .contact-links { display: flex; flex-direction: column; gap: 0; }
 
     .contact-link {
       display: flex;
@@ -678,29 +433,23 @@
       text-decoration: none;
       color: var(--ink);
       font-size: 0.9rem;
-      padding-bottom: 16px;
+      padding: 16px 0;
       border-bottom: 1px solid var(--border);
       transition: gap 0.2s;
-      group: true;
     }
 
-    .contact-link:hover {
-      gap: 24px;
-    }
+    .contact-link:hover { gap: 24px; }
 
     .contact-link-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--light);
-      width: 80px;
+      width: 72px;
     }
 
-    .contact-link-value {
-      flex: 1;
-      color: var(--ink);
-    }
+    .contact-link-value { flex: 1; color: var(--ink); }
 
     .contact-link-arrow {
       color: var(--light);
@@ -712,37 +461,51 @@
       transform: translateX(4px);
     }
 
-    .contact-right {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+    .contact-right { display: flex; flex-direction: column; gap: 2px; }
 
     .contact-card {
       background: white;
       border: 1px solid var(--border);
-      padding: 40px;
+      padding: 32px;
     }
 
     .contact-card-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--light);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .contact-card-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 300;
       line-height: 1.4;
     }
 
-    /* Footer */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--cream);
+      padding: 14px 28px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .btn-primary:hover { background: var(--accent); color: var(--cream); }
+    .btn-primary .arrow { transition: transform 0.2s; }
+    .btn-primary:hover .arrow { transform: translateX(4px); }
+
     footer {
-      padding: 32px 60px;
+      padding: 28px 60px;
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
@@ -762,40 +525,25 @@
       color: var(--light);
     }
 
-    /* Animations */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
+      transform: translateY(28px);
       transition: opacity 0.7s cubic-bezier(0.23,1,0.32,1), transform 0.7s cubic-bezier(0.23,1,0.32,1);
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* Mobile */
     @media (max-width: 768px) {
-      nav { padding: 24px 24px; }
-      .nav-links { gap: 24px; }
-      section { padding: 80px 24px; }
-      #hero { padding: 0 24px 60px; }
+      nav { padding: 24px; }
+      .nav-links { gap: 20px; }
+      section { padding: 60px 24px; }
       #about { grid-template-columns: 1fr; gap: 40px; }
       .about-right { padding-top: 0; }
       #contact { grid-template-columns: 1fr; }
-      .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+      .timeline-item { grid-template-columns: 1fr; gap: 6px; }
       .timeline-item:hover { margin: 0; padding-left: 0; padding-right: 0; }
-      .trades-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
-      .hero-bottom { flex-direction: column; gap: 32px; align-items: flex-start; }
       footer { flex-direction: column; gap: 8px; text-align: center; }
-      .rule { margin: 0 24px; width: calc(100% - 48px); }
-      .work-header { flex-direction: column; gap: 20px; }
     }
   </style>
 </head>
@@ -803,7 +551,6 @@
 
   <div class="cursor" id="cursor"></div>
 
-  <!-- Nav -->
   <nav>
     <a href="#hero" class="nav-logo">AG</a>
     <ul class="nav-links">
@@ -813,98 +560,68 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-eyebrow">New York City &mdash; Palm City</div>
-      <h1 class="hero-name">Andrew</h1>
-      <div class="hero-bottom">
-        <p class="hero-desc">From Palm City to NYC. I've been building things since I was 16 and haven't stopped since.</p>
-        <a href="https://www.linkedin.com/in/andrewgaldys/" target="_blank" class="btn-primary">
-          LinkedIn <span class="arrow">&#8594;</span>
-        </a>
-      </div>
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Palm City &rarr; New York City</div>
+      <h1 class="hero-name">
+        <span class="first">Andrew</span>
+        <span class="last">Galdys</span>
+      </h1>
+      <p class="hero-tagline">Founder. Operator. Investor. Building since 16.</p>
+      <a href="https://www.linkedin.com/in/andrewgaldys/" target="_blank" class="btn-primary" style="margin-top:8px;">
+        LinkedIn <span class="arrow">&#8594;</span>
+      </a>
     </div>
-    <div class="hero-right">
-      <div class="hero-geo">
-        <div class="geo-ring geo-ring-1"></div>
-        <div class="geo-ring geo-ring-2"></div>
-        <div class="geo-ring geo-ring-3"></div>
-        <div class="geo-cross geo-cross-h"></div>
-        <div class="geo-cross geo-cross-v"></div>
-        <div class="geo-dot geo-dot-1"></div>
-        <div class="geo-dot geo-dot-2"></div>
-        <div class="geo-dot geo-dot-3"></div>
-        <div class="geo-label geo-label-1">16</div>
-        <div class="geo-label geo-label-2">NYC</div>
-        <div class="geo-label geo-label-3">BUILDER</div>
-      </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-label">Scroll</div>
+      <div class="hero-scroll-line"></div>
     </div>
-  </div>
-  <div class="hero-bg-text">ANDREW<br>GALDYS</div>
-</section>
+    <canvas id="particleCanvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.4;"></canvas>
+  </section>
 
-  <div class="rule"></div>
-
-  <!-- About -->
   <section id="about">
     <div class="about-left reveal">
       <div class="section-label">About</div>
-      <div class="journey-map">
-  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:260px;">
-    <!-- Dotted path from Palm Beach to NYC -->
-    <path id="route" d="M 100 320 C 80 250, 120 180, 95 80" 
-      fill="none" 
-      stroke="#c5a95a" 
-      stroke-width="1.5" 
-      stroke-dasharray="6 4"
-      opacity="0.6"/>
-    
-    <!-- Animated dot traveling the route -->
-    <circle r="4" fill="#c5a95a">
-      <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
-        <mpath href="#route"/>
-      </animateMotion>
-    </circle>
-
-    <!-- Palm Beach pin -->
-    <circle cx="100" cy="320" r="5" fill="none" stroke="#c5a95a" stroke-width="1.5"/>
-    <circle cx="100" cy="320" r="2" fill="#c5a95a"/>
-    <text x="112" y="325" font-family="'DM Mono', monospace" font-size="9" fill="#6b6b6b" letter-spacing="1">PALM CITY</text>
-
-    <!-- NYC pin -->
-    <circle cx="95" cy="80" r="5" fill="none" stroke="#c5a95a" stroke-width="1.5"/>
-    <circle cx="95" cy="80" r="2" fill="#c5a95a"/>
-    <text x="107" y="85" font-family="'DM Mono', monospace" font-size="9" fill="#6b6b6b" letter-spacing="1">NEW YORK</text>
-
-    <!-- Distance label -->
-    <text x="40" y="205" font-family="'DM Mono', monospace" font-size="8" fill="#c8c4bb" letter-spacing="1">1,280 MI</text>
-  </svg>
-</div>
-      <h2 class="about-heading">Builder at<br><em>heart</em>.</h2>
+      <h2 class="about-heading">Always<br>building<br><em>something</em>.</h2>
+      <p class="about-body">Grew up in Palm City, moved to New York at 18. I joined my first founding team at 16 as an AI Workflow Engineer at Nova Echo AI where we built voice agents for small businesses and hit six figures in ARR. That set the tone for everything after.</p>
+      <p class="about-body">Since then I have been across AI, real estate, wealth management, social networking startups, and recruiting. I founded Cipher Intel to give business students a real place to publish research and build a name for themselves. Right now I am CoS at Ambees.io, a startup I am building with friends from Georgetown and UC Berkeley, while doing tech recruiting at Venturi in NYC.</p>
+      <p class="about-body">Outside of work I am in the markets, big wins on NVDA and Silver among others. I play golf whenever I can and lately I have been teaching myself Python so I can actually build the things I come up with.</p>
     </div>
     <div class="about-right reveal">
-      <img src="me.jpeg" alt="Andrew Galdys" style="width: 100%; max-width: 100%; width: 300px; height: auto; margin-bottom: 40px;" />
-      <p class="about-body">I grew up in Palm City, Florida, and moved to New York City at 18 — drawn to the energy, ambition, and pace of the city. I joined my first founding team at 16 as an AI Workflow Engineer at Nova Echo AI, where I helped build AI voice agents for small businesses and contributed to scaling the company to six figures in ARR.</p>
-      <p class="about-body">Since then I've worked across AI, commercial real estate, wealth management, and recruiting. I founded Cipher Intel, a platform for business students to publish research and build a personal brand, with students from NYU, UT Austin, and beyond. Today I'm Chief of Staff at Ambees.io, a startup I'm building with friends at Georgetown and UC Berkeley, while doing tech recruiting at Venturi.</p>
-      <p class="about-body">Outside of work, I enjoy investing, playing golf, and am currently self-teaching Python to become more technical.</p>
+      <div class="journey-map">
+        <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:260px;">
+          <path id="route" d="M 100 320 C 80 250, 120 180, 95 80"
+            fill="none" stroke="#c5a95a" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/>
+          <circle r="4" fill="#c5a95a">
+            <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#route"/>
+            </animateMotion>
+          </circle>
+          <circle cx="100" cy="320" r="5" fill="none" stroke="#c5a95a" stroke-width="1.5"/>
+          <circle cx="100" cy="320" r="2" fill="#c5a95a"/>
+          <text x="112" y="325" font-family="'DM Mono', monospace" font-size="9" fill="#6b6b6b" letter-spacing="1">PALM CITY</text>
+          <circle cx="95" cy="80" r="5" fill="none" stroke="#c5a95a" stroke-width="1.5"/>
+          <circle cx="95" cy="80" r="2" fill="#c5a95a"/>
+          <text x="107" y="85" font-family="'DM Mono', monospace" font-size="9" fill="#6b6b6b" letter-spacing="1">NEW YORK</text>
+          <text x="40" y="205" font-family="'DM Mono', monospace" font-size="8" fill="#c8c4bb" letter-spacing="1">1,280 MI</text>
+        </svg>
+      </div>
 
-      <div class="stats-grid" style="margin-top: 48px;">
+      <div class="stats-grid">
         <div class="stat">
           <div class="stat-number">16</div>
           <div class="stat-label">Age at first startup</div>
         </div>
         <div class="stat">
-          <div class="stat-number">+1600<sup>%</sup></div>
+          <div class="stat-number">1600<sup>%</sup></div>
           <div class="stat-label">NVDA return</div>
         </div>
         <div class="stat">
           <div class="stat-number">6<sup>+</sup></div>
-          <div class="stat-label">Companies &amp; ventures</div>
+          <div class="stat-label">Companies and ventures</div>
         </div>
         <div class="stat">
-          <div class="stat-number">+300<sup>%</sup></div>
+          <div class="stat-number">300<sup>%</sup></div>
           <div class="stat-label">Silver return</div>
         </div>
       </div>
@@ -922,72 +639,67 @@
     </div>
   </section>
 
-  <!-- Work -->
   <section id="work">
-    <div class="work-header reveal">
-      <div>
-        <div class="section-label">Experience</div>
-        <h2 class="work-heading">Where I've<br><em>been</em>.</h2>
-      </div>
+    <div class="reveal">
+      <div class="section-label">Experience</div>
+      <h2 class="work-heading">What I have<br><em>been up to</em>.</h2>
     </div>
 
     <div class="timeline">
 
       <div class="timeline-item reveal">
-        <div class="timeline-year"><span class="timeline-current"></span>Feb 2026 &mdash; Present</div>
+        <div class="timeline-year"><span class="timeline-current"></span>Feb 2026 &ndash; Present</div>
         <div class="timeline-content">
           <div class="timeline-role">Chief of Staff</div>
           <div class="timeline-company">Ambees.io</div>
-          <p class="timeline-desc">Building a startup with friends from Georgetown and UC Berkeley. Leading operations and strategy as CoS alongside the founding team.</p>
+          <p class="timeline-desc">Building something new with friends from Georgetown and Berkeley. I handle operations, strategy, and whatever needs to get done. CoS is a fancy way of saying you do a bit of everything.</p>
         </div>
       </div>
 
       <div class="timeline-item reveal">
-        <div class="timeline-year"><span class="timeline-current"></span>Jan 2026 &mdash; Present</div>
+        <div class="timeline-year"><span class="timeline-current"></span>Jan 2026 &ndash; Present</div>
         <div class="timeline-content">
           <div class="timeline-role">Tech Recruiting</div>
           <div class="timeline-company">Venturi</div>
-          <p class="timeline-desc">Connecting engineers with companies. Specialized in placing technical talent across high-growth startups and established tech firms in New York.</p>
+          <p class="timeline-desc">Placing engineers at high-growth startups and tech companies across New York. I actually enjoy this one. You talk to interesting people all day.</p>
         </div>
       </div>
 
       <div class="timeline-item reveal">
-        <div class="timeline-year">Oct 2025 &mdash; Present</div>
+        <div class="timeline-year">Oct 2025 &ndash; Present</div>
         <div class="timeline-content">
           <div class="timeline-role">Founder</div>
           <div class="timeline-company">Cipher Intel</div>
-          <p class="timeline-desc">Platform for business students to publish research and build a personal brand. Active community with students from NYU, UT Austin, and more.</p>
+          <p class="timeline-desc">Built a platform for business students to publish research and grow a personal brand. We have students from NYU, UT Austin, and a bunch of other schools. Pretty proud of this one.</p>
         </div>
       </div>
 
       <div class="timeline-item reveal">
-        <div class="timeline-year">Aug 2025 &mdash; Jan 2026</div>
+        <div class="timeline-year">Aug 2025 &ndash; Jan 2026</div>
         <div class="timeline-content">
           <div class="timeline-role">Business Operations</div>
           <div class="timeline-company">Series</div>
-          <p class="timeline-desc">Joined the operations team at Series — the AI social networking startup that raised $3M from investors. Contributed to testing and refining the core product.</p>
+          <p class="timeline-desc">Joined the team at Series, an AI social networking startup that raised $3M. Got a close look at how an early-stage company operates when things are moving fast.</p>
         </div>
       </div>
 
       <div class="timeline-item reveal">
-        <div class="timeline-year">Nov 2023 &mdash; Feb 2026</div>
+        <div class="timeline-year">Nov 2023 &ndash; Feb 2026</div>
         <div class="timeline-content">
           <div class="timeline-role">AI Workflow Engineer</div>
           <div class="timeline-company">Nova Echo AI</div>
-          <p class="timeline-desc">Joined the founding team at 16. Built AI voice agents for small businesses and helped scale Nova Echo to six figures in annual recurring revenue.</p>
+          <p class="timeline-desc">This is where it all started. Joined the founding team at 16, built AI voice agents for small businesses, and helped get the company to six figures ARR. Learned more in that time than I could have anywhere else.</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <div class="contact-left reveal">
       <div class="section-label">Contact</div>
       <h2 class="contact-heading">Let's<br><em>talk</em>.</h2>
-      <p class="contact-body">Whether it's a startup idea, an investment opportunity, or just a conversation — I'm always open to connecting with interesting people.</p>
-
+      <p class="contact-body">Always down to connect. Whether it is a startup idea, a trade thesis, a role, or just to chat. My inbox is open.</p>
       <div class="contact-links">
         <a href="https://www.linkedin.com/in/andrewgaldys/" target="_blank" class="contact-link">
           <span class="contact-link-label">LinkedIn</span>
@@ -997,11 +709,6 @@
         <a href="mailto:andrew@ambees.io" class="contact-link">
           <span class="contact-link-label">Email</span>
           <span class="contact-link-value">andrew@ambees.io</span>
-          <span class="contact-link-arrow">&#8594;</span>
-        </a>
-        <a href="https://andrewgaldys.com" class="contact-link">
-          <span class="contact-link-label">Web</span>
-          <span class="contact-link-value">andrewgaldys.com</span>
           <span class="contact-link-arrow">&#8594;</span>
         </a>
       </div>
@@ -1014,64 +721,85 @@
       </div>
       <div class="contact-card">
         <div class="contact-card-label">Currently</div>
-        <div class="contact-card-text">Chief of Staff @ Ambees.io<br>Tech Recruiting @ Venturi</div>
+        <div class="contact-card-text">Chief of Staff at Ambees.io<br>Tech Recruiting at Venturi</div>
       </div>
       <div class="contact-card">
         <div class="contact-card-label">Open to</div>
-        <div class="contact-card-text">Founding teams, advisory, investing conversations &amp; opportunities.</div>
+        <div class="contact-card-text">Founding teams, advisory, investing conversations and opportunities.</div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-name">Andrew Galdys</div>
-    <div class="footer-copy">&copy; 2026 &mdash; All rights reserved</div>
+    <div class="footer-copy">&copy; 2026 All rights reserved</div>
   </footer>
 
   <script>
-    // Custom cursor
     const cursor = document.getElementById('cursor');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
     document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px';
-      cursor.style.top = my + 'px';
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
     });
-
-    function animateRing() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
-
     document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-      });
+      el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(1.5)');
+      el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
     });
 
-    // Scroll reveal
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.5 + 0.1;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(197,169,90,${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, 80);
+          entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => observer.observe(el));
 
-    // Stagger timeline items
     document.querySelectorAll('.timeline-item').forEach((el, i) => {
       el.style.transitionDelay = (i * 60) + 'ms';
     });
